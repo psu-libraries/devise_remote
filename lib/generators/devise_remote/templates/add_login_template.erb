@@ -1,0 +1,9 @@
+class AddLoginTo<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_version %>
+
+  def change
+    add_column :<%= table_name %>, :login, :string, null: false, default: ''
+    change_column :<%= table_name %>, :email, :string, null:true
+    change_column :<%= table_name %>, :encrypted_password, :string, null: true
+    add_index :<%= table_name %>, :login, unique:true
+  end
+end
