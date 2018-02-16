@@ -1,7 +1,14 @@
 # frozen_string_literal: true
 
 require 'bundler/setup'
+require 'rails'
 require 'devise_remote'
+require 'pry-byebug' unless ENV['TRAVIS']
+require 'engine_cart'
+
+EngineCart.load_application!
+
+Dir[File.join(File.dirname(__dir__), 'spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
