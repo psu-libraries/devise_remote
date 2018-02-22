@@ -1,8 +1,8 @@
 # DeviseRemote
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/devise_remote`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Using Devise, this allows your application to authenticate with a remote service such
+as LDAP, Shibboleth, or any other service that supplies a user's information via
+HTTP headers.
 
 ## Installation
 
@@ -22,7 +22,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+DeviseRemote uses much of Devise's generators. Using it with in a new Rails application should
+only require one command:
+
+    $ bundle exec rails g devise_remote:install NAME
+
+Where `NAME` is the ActiveRecord class you'd like to use for your user. The typical
+class is `User` although this is not assumed as a default and you must provide one yourself.
+
+After that, you'll need to get your controllers to authenticate by including:
+
+    before_action :authenticate_user!
 
 ## Development
 
