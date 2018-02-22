@@ -2,6 +2,12 @@
 
 require 'bundler/setup'
 require 'devise_remote'
+require 'active_record'
+require 'byebug' unless ENV['TRAVIS']
+
+ActiveRecord::Base.establish_connection adapter: 'sqlite3', database: ':memory:'
+
+Dir[File.join(File.dirname(__dir__), 'spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

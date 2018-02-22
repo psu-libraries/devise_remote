@@ -1,0 +1,27 @@
+class AddLdapAttributesTo<%= table_name.camelize %> < ActiveRecord::Migration<%= migration_version %>
+  def self.up
+    add_column :<%= table_name %>, :display_name, :string
+    add_column :<%= table_name %>, :address, :string
+    add_column :<%= table_name %>, :admin_area, :string
+    add_column :<%= table_name %>, :department, :string
+    add_column :<%= table_name %>, :title, :string
+    add_column :<%= table_name %>, :office, :string
+    add_column :<%= table_name %>, :chat_id, :string
+    add_column :<%= table_name %>, :website, :string
+    add_column :<%= table_name %>, :affiliation, :string
+    add_column :<%= table_name %>, :telephone, :string
+  end
+
+  def self.down
+    remove_column :<%= table_name %>, :display_name
+    remove_column :<%= table_name %>, :address
+    remove_column :<%= table_name %>, :admin_area
+    remove_column :<%= table_name %>, :department
+    remove_column :<%= table_name %>, :title
+    remove_column :<%= table_name %>, :office
+    remove_column :<%= table_name %>, :chat_id
+    remove_column :<%= table_name %>, :website
+    remove_column :<%= table_name %>, :affiliation
+    remove_column :<%= table_name %>, :telephone
+  end
+end

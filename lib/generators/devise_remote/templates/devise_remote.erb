@@ -1,0 +1,7 @@
+Warden::Strategies.add(:http_header_authenticatable, Devise::Strategies::HttpHeaderAuthenticatable)
+
+Devise.setup do |config|
+  config.warden do |manager|
+    manager.default_strategies(:scope => :<%= name.downcase %>).unshift :http_header_authenticatable
+  end
+end
